@@ -2,5 +2,4 @@
 
 filename=./$(date '+%a %W %b %Y %X')
 
-pg_dump -h $DB_HOST -p $DB_PORT -U $DB_USER $DB_NAME > "$filename" \
-&& aws s3 cp "$filename" "s3://$AWS_STORAGE_BUCKET_NAME/backups/"
+pg_dump > "$filename" && aws s3 cp "$filename" "s3://$AWS_STORAGE_BUCKET_NAME/backups/"
