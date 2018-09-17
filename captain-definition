@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "dockerfileLines": [
     "FROM python",
-    "ADD ./src/backup.sh /backup.sh",
-    "ADD ./src/backup_cron /etc/cron.d/backup_cron",
     "RUN pip install awscli",
     "RUN apt-get update && apt-get -y install cron",
+    "ADD ./src/backup.sh /backup.sh",
+    "ADD ./src/backup_cron /etc/cron.d/backup_cron",
     "RUN chmod 0644 /etc/cron.d/backup_cron",
     "RUN crontab /etc/cron.d/backup_cron",
     "RUN touch /var/log/cron.log",
