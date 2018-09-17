@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "dockerfileLines": [
-    "FROM python",
-    "RUN pip install awscli",
-    "RUN apt-get update && apt-get -y install cron postgresql-client",
+    "FROM postgres",
+    "RUN apt-get update && apt-get -y install cron python3 python3-pip",
+    "RUN pip3 install awscli",
     "ADD ./src/backup.sh /backup.sh",
     "ADD ./src/backup_cron /etc/cron.d/backup_cron",
     "RUN chmod 0644 /etc/cron.d/backup_cron",
