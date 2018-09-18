@@ -1,5 +1,5 @@
 # For testing - run every minute
-*/1 * * * * root . /project_env.sh && /backup.sh >> /var/log/cron.log 2>&1
+#*/1 * * * * root . /project_env.sh && /backup.sh >> /var/log/cron.log 2>&1
 
 # Run the backups at 11pm each night
 0 23 * * * root . /project_env.sh && /backup.sh >> /var/log/cron.log 2>&1
